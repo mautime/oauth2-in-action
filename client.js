@@ -36,11 +36,12 @@ var protectedResource = 'http://localhost:9002/resource';
 
 var state = randomstring.generate();
 
-var access_token = null;
+var access_token = '987tghjkiu6trfghjuytrghj';
+var refresh_token = 'j2r3oj32r23rmasd98uhjrk2o3i';
 var scope = null;
 
 app.get('/', function (req, res) {
-	res.render('index', {access_token: access_token, scope: scope});
+	res.render('index', {access_token: access_token, refresh_token: refresh_token, scope: scope});
 });
 
 app.get('/authorize', function(req, res) {
@@ -91,9 +92,11 @@ app.get('/callback', function(req, res){
 
 	jsonResponse = JSON.parse(response.getBody());
 
+	console.log(jsonResponse);
+	
 	access_token = jsonResponse.access_token;
 
-	res.render('index', {access_token: access_token, scope: scope});
+	res.render('index', {access_token: access_token, refresh_token: refresh_token, scope: scope});
 	/*
 	 * Parse the response from the authorization server and get a token
 	 */
@@ -121,11 +124,52 @@ app.get('/fetch_resource', function(req, res) {
 	
 	 if (response.statusCode >= 200 && response.statusCode < 300) {
 		 res.render('data', {resource: JSON.parse(response.getBody())});
+	 } else if (response.statusCode == 401) {
+		 refreshAccessToken(req, res);
 	 } else {
 		 res.render('error', {error: 'Protected resource returned code: ' + response.statusCode});
 	 }
 	 
 });
+
+var refreshAccessToken = function(req, res) {
+	console.log('Enter refreshAccessToken');
+
+	var formData = qs.stringify({
+		grant_type: 'refresh_token', 
+		refresh_token: refresh_token
+	});
+
+	var headers = {
+		'Content-Type': 'application/x-www-form-urlencoded', 
+		'Authorization': 'Basic ' + encodeClientCredentials(client.client_id, client.client_secret)
+	}
+
+	var response = request('POST', authServer.tokenEndpoint, {
+		body: formData, 
+		headers: headers
+	});
+
+	if (response.statusCode >= 200 && response.statusCode < 300) {
+		var jsonResponse = JSON.parse(response.getBody());
+
+		console.log('refreshAccessToken - SUCCESS');
+		console.log(jsonResponse);
+		console.log('Refresh Token: ' + jsonResponse.refresh_token);
+
+		access_token = jsonResponse.access_token;
+		refresh_token = jsonResponse.refresh_token;
+		
+		res.redirect('/fetch_resource');
+		return;
+	} else {
+		console.log('refreshAccessToken - ERROR');
+		refresh_token = null;
+		res.render('error', {error: 'An error has ocurred while refreshing the token'});
+		return;
+	}
+
+};
 
 var buildUrl = function(base, options, hash) {
 	var newUrl = url.parse(base, true);

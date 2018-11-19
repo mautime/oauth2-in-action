@@ -1,13 +1,8 @@
-{"access_token":"nP5NUsLHckWEGeGtGxcIfDg1LZGJjYKl","client_id":"oauth-client-1","scope":""}
-{"access_token":"i1NCvNGnutCkXMJHBgMGru0vMdKuXYXK","client_id":"oauth-client-1","scope":""}
-{"access_token":"5XfHuahz2SljQq4tpQouKcHEfvjvGhh1","client_id":"oauth-client-1","scope":""}
-{"access_token":"2A2bicrPUy1djzieHZALWX7EhR1O7gH9","client_id":"oauth-client-1","scope":""}
-{"access_token":"LssDp41BI0IGB36jwmKquW059M2jbKNd","client_id":"oauth-client-1","scope":""}
-{"access_token":"Nw8vm6lo628BMwBNWmwtaePiNE7NwzjI","client_id":"oauth-client-1","scope":""}
-{"access_token":"17dge5zpRpufN23mNHjk03vFV83gy6i2","client_id":"oauth-client-1","scope":""}
-{"access_token":"ivYDwBkgAXx7v2K2PG7cyjDAJGZ25BQl","client_id":"oauth-client-1","scope":""}
-{"access_token":"usPmfJ86ZjAq4q7kk3NwAt3aZAszuRLE","client_id":"oauth-client-1","scope":""}
-{"access_token":"MC8IjhcmxV6XvTxYLXlUbQVyTtdN7E8w","client_id":"oauth-client-1","scope":""}
-{"access_token":"7MdU37sTeDp2cYXfIKW8A0Ue12r6apN3","client_id":"oauth-client-1","scope":""}
-{"access_token":"TgqPGkkFJ4QkngcZLsTQi1F77gDkOMGz","client_id":"oauth-client-1","scope":""}
-{"access_token":"IeCjjizlZFn0MTicoTbdPPUrKAN2jAiw","client_id":"oauth-client-1","scope":""}
+{"refresh_token":"j2r3oj32r23rmasd98uhjrk2o3i","client_id":"oauth-client-1","scope":"foo bar"}
+{"access_token":"hZ9crZ87nxMxPGszk4NY2i76SGt9UecZ","client_id":"oauth-client-1"}
+{"access_token":"JnfrsnP9HaGVaAgHKcumHBMsdMkJFXFS","client_id":"oauth-client-1"}
+{"access_token":"clXBRjNlXhxBxBn8k3sSlbimBGWQoQWD","client_id":"oauth-client-1"}
+{"access_token":"TgNMqP5OdkGkg5Lsv4lWGfyXx3UDEorM","client_id":"oauth-client-1"}
+{"access_token":"ev4a6GUdoQEwgO71DMcEMcTXC57bXxan","client_id":"oauth-client-1"}
+{"access_token":"mQYjLiuRaAgDlUQDNVIRYgKiwTLhaZBp","client_id":"oauth-client-1"}
+{"access_token":"fp04rhB5JTJZHJs5Arlw2stmFUmXwPOb","client_id":"oauth-client-1"}
